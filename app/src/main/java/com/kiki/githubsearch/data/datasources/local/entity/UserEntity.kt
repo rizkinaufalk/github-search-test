@@ -2,6 +2,7 @@ package com.kiki.githubsearch.data.datasources.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.kiki.githubsearch.domain.model.User
 
 @Entity(tableName = "users")
 data class UserEntity(
@@ -15,4 +16,19 @@ data class UserEntity(
     val followers: Int?,
     val following: Int?,
     val avatarUrl: String?
+)
+
+fun List<UserEntity>.toDomain(): List<User> = map { it.toDomain() }
+
+fun UserEntity.toDomain(): User = User(
+    id = id,
+    username = username,
+    name = name,
+    bio = bio,
+    email = email,
+    company = company,
+    twitter = twitter,
+    followers = followers,
+    following = following,
+    avatarUrl = avatarUrl
 )

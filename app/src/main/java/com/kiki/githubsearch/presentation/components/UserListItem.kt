@@ -1,6 +1,5 @@
 package com.kiki.githubsearch.presentation.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
@@ -27,7 +27,7 @@ import com.kiki.githubsearch.R
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun CharListItem(
+fun UserListItem(
     imageUrl: String,
     name: String,
     modifier: Modifier = Modifier
@@ -47,7 +47,7 @@ fun CharListItem(
             GlideImage(
                 model = imageUrl,
                 contentDescription = "Character Image",
-                modifier = modifier
+                modifier = Modifier
                     .size(80.dp)
                     .clip(CircleShape),
                 contentScale = ContentScale.Crop
@@ -66,6 +66,14 @@ fun CharListItem(
                 modifier = Modifier.weight(1f)
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun previewUserListItem(){
+    MaterialTheme {
+        UserListItem("", "amin")
     }
 }
 

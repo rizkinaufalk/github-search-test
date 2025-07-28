@@ -1,5 +1,6 @@
 package com.kiki.githubsearch.di
 
+import com.kiki.githubsearch.data.datasources.local.UserLocalDataSource
 import com.kiki.githubsearch.data.datasources.remote.UserRemoteDataSource
 import com.kiki.githubsearch.data.repositories.UserRepositoryImpl
 import com.kiki.githubsearch.domain.repository.UserRepository
@@ -15,6 +16,8 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun providesUsersRepository(
-        remoteDataSource: UserRemoteDataSource
-    ): UserRepository = UserRepositoryImpl(remoteDataSource)
+        remoteDataSource: UserRemoteDataSource,
+        localDataSource: UserLocalDataSource
+
+    ): UserRepository = UserRepositoryImpl(remoteDataSource, localDataSource)
 }
