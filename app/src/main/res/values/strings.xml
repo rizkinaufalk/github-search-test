@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Github Search</string>
+    <string name="file_not_found">File Not Found</string>
+    <string name="request_time_out">Request timed out </string>
+    <string name="no_internet">No Internet Connection</string>
+    <string name="unable_reach_server">Failed to connect to serve</string>
+    <string name="ssl_error">Secure connection failed</string>
+    <string name="bad_request">Invalid request sent</string>
+    <string name="unauthorized">Session expired / Unauthorized</string>
+    <string name="access_denied">Access denied</string>
+    <string name="not_found">Data not found</string>
+    <string name="server_error">Server error</string>
+    <string name="uknown">Uknown Error</string>
 </resources>
