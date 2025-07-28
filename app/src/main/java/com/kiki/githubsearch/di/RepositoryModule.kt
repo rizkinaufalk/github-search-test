@@ -1,6 +1,6 @@
 package com.kiki.githubsearch.di
 
-import com.kiki.githubsearch.data.remote.UserRemoteDataSource
+import com.kiki.githubsearch.data.datasources.remote.UserRemoteDataSource
 import com.kiki.githubsearch.data.repositories.UserRepositoryImpl
 import com.kiki.githubsearch.domain.repository.UserRepository
 import dagger.Module

@@ -1,4 +1,4 @@
-package com.kiki.githubsearch.data.remote
+package com.kiki.githubsearch.data.datasources.remote
 
 import javax.inject.Inject
 

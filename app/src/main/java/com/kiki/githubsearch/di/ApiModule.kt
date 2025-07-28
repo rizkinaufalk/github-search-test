@@ -1,6 +1,6 @@
 package com.kiki.githubsearch.di
 
-import com.kiki.githubsearch.data.remote.GithubApi
+import com.kiki.githubsearch.data.datasources.remote.GithubApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

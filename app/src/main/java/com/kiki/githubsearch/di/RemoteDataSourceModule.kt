@@ -1,9 +1,9 @@
 package com.kiki.githubsearch.di
 
 
-import com.kiki.githubsearch.data.remote.GithubApi
-import com.kiki.githubsearch.data.remote.UserRemoteDataSource
-import com.kiki.githubsearch.data.remote.UserRemoteDataSourceImpl
+import com.kiki.githubsearch.data.datasources.remote.GithubApi
+import com.kiki.githubsearch.data.datasources.remote.UserRemoteDataSource
+import com.kiki.githubsearch.data.datasources.remote.UserRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
