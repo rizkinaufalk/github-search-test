@@ -16,3 +16,4 @@ data class UserEntity(
     val following: Int?,
     val avatarUrl: String?
 )
+
