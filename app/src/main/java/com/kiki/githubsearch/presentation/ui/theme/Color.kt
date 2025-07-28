@@ -1,4 +1,4 @@
-package com.kiki.githubsearch.ui.theme
+package com.kiki.githubsearch.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
