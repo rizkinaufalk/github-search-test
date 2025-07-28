@@ -38,6 +38,13 @@
    ```bash
    GITHUB_TOKEN=your_github_token
 
+## Project Breakdown
+
+The picture below is the process before I start to develop project. I tried to understand it with my mind and start to pour all the idea into it.
+
+<img width="1162" height="714" alt="image" src="https://github.com/user-attachments/assets/39561fdf-176e-4037-a659-58e76be2fdbc" />
+
+
 ##  Challenges and Notes to this project:
 - Limited time, unfortunate event always come unexpected. My notebook got BSOD all weekend and just got repaired noon on monday. It may sound like an excuse, but it is what it is. At least I did my best for this test.
 - Confused to decide what's localDb used for. Is it for offline mode or limit api call. but, I don't implement perfectly in here. it got mixed up and panicking because clock is ticking
