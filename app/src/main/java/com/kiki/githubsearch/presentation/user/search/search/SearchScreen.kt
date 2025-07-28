@@ -21,7 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.kiki.githubsearch.presentation.components.CharListItem
+import com.kiki.githubsearch.presentation.components.UserListItem
 import com.kiki.githubsearch.presentation.components.CustomPullToRefreshBox
 import com.kiki.githubsearch.presentation.components.CustomSearchBar
 import com.kiki.githubsearch.presentation.components.toolbar.ToolbarConfig
@@ -75,9 +75,11 @@ fun SearchScreen(
                         isRefreshing = state.isRefreshing,
                         onRefresh = viewModel::onPullRefresh
                     ) {
+                        val uniqueUsers = state.userList.distinctBy { it.id }
+
                         LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
-                            itemsIndexed(state.userList, key = { _, item -> item.username.orEmpty() }) { _, user ->
-                                CharListItem(
+                            itemsIndexed(uniqueUsers, key = { _, item -> item.id ?: 0 }) { _, user ->
+                                UserListItem(
                                     imageUrl = user.avatarUrl.orEmpty(),
                                     name = user.username.orEmpty(),
                                     modifier = Modifier

@@ -91,10 +91,10 @@ dependencies {
     implementation(libs.okhttp.logging)
     ksp(libs.moshi.codegen)
 
-    // Coil
-    implementation(libs.glide)
+    // Glide
+//    implementation(libs.glide)
     implementation(libs.glide.compose)
-    implementation(libs.glide.compiler)
+//    implementation(libs.glide.compiler)
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)

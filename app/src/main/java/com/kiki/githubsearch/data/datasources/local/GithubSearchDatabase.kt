@@ -8,7 +8,8 @@ import com.kiki.githubsearch.data.datasources.local.entity.UserEntity
     entities = [
         UserEntity::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class GithubSearchDatabase : RoomDatabase() {
 
