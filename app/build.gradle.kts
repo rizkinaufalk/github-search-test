@@ -1,9 +1,21 @@
+import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.dagger.hilt)
     id("org.jetbrains.kotlin.kapt")
     alias(libs.plugins.ksp)
+}
+
+val githubToken: String? = run {
+    val properties = Properties()
+    val localProperties = rootProject.file("local.properties")
+    if (localProperties.exists()) {
+        localProperties.inputStream().use { properties.load(it) }
+        properties.getProperty("GITHUB_TOKEN")
+    } else {
+        null
+    }
 }
 
 android {
@@ -31,10 +43,12 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField("String", "GITHUB_TOKEN", "\"${githubToken}\"")
         }
         release {
             isMinifyEnabled = false
             buildConfigField("String", "BASE_URL", "\"https://api.github.com/\"")
+            buildConfigField("String", "GITHUB_TOKEN", "\"${githubToken}\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
