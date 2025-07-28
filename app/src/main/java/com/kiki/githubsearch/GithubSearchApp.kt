@@ -14,7 +14,7 @@ class GithubSearchApp: Application() {
         super.onCreate()
 
         if (tokenProvider.getToken() == null) {
-            tokenProvider.saveToken("")
+            tokenProvider.saveToken(BuildConfig.GITHUB_TOKEN)
         }
     }
 }
