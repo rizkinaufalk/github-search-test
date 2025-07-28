@@ -93,6 +93,8 @@ dependencies {
 
     // Coil
     implementation(libs.glide)
+    implementation(libs.glide.compose)
+    implementation(libs.glide.compiler)
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
