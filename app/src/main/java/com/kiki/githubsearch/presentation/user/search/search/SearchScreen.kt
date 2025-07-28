@@ -34,11 +34,11 @@ fun SearchScreen(
     viewModel: SearchViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ) {
-    val state by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsState()
     val listState = rememberLazyListState()
 
     LaunchedEffect(Unit) {
-        updateToolbar(ToolbarConfig(title = "Search"))
+            updateToolbar(ToolbarConfig(title = "Search"))
     }
 
     LaunchedEffect(listState) {
@@ -46,8 +46,8 @@ fun SearchScreen(
             .collect { visibleItems ->
                 val lastVisibleIndex = visibleItems.lastOrNull()?.index ?: return@collect
 
-                val isAtEnd = lastVisibleIndex >= state.userList.lastIndex
-                val canLoadMore = !state.isLoading && !state.endPage
+                val isAtEnd = lastVisibleIndex >= uiState.userList.lastIndex
+                val canLoadMore = !uiState.isLoading && !uiState.endPage
 
                 if (isAtEnd && canLoadMore) {
                     viewModel.loadNextPage()
@@ -58,13 +58,13 @@ fun SearchScreen(
     Surface(modifier = modifier.fillMaxSize()) {
         Column {
             CustomSearchBar(
-                searchText = state.searchText,
+                searchText = uiState.searchText,
                 onTextChange = viewModel::onTextChanged,
                 onSearchClicked = viewModel::onSearchClicked
             )
 
             when {
-                state.isLoading && state.userList.isEmpty() -> {
+                uiState.isLoading && uiState.userList.isEmpty() -> {
                     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         CircularProgressIndicator()
                     }
@@ -72,10 +72,10 @@ fun SearchScreen(
 
                 else -> {
                     CustomPullToRefreshBox(
-                        isRefreshing = state.isRefreshing,
+                        isRefreshing = uiState.isRefreshing,
                         onRefresh = viewModel::onPullRefresh
                     ) {
-                        val uniqueUsers = state.userList.distinctBy { it.id }
+                        val uniqueUsers = uiState.userList.distinctBy { it.id }
 
                         LazyColumn(state = listState, modifier = Modifier.fillMaxSize()) {
                             itemsIndexed(uniqueUsers, key = { _, item -> item.id ?: 0 }) { _, user ->
@@ -89,7 +89,7 @@ fun SearchScreen(
                                 )
                             }
 
-                            if (state.isLoading) {
+                            if (uiState.isLoading) {
                                 item {
                                     Box(
                                         modifier = Modifier

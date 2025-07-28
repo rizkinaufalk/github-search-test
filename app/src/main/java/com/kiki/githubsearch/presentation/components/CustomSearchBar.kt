@@ -29,7 +29,7 @@ fun CustomSearchBar(
         onValueChange = onTextChange,
         modifier = modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(horizontal = 16.dp, vertical = 8.dp),
         placeholder = { Text("Search GitHub users...") },
         trailingIcon = {
             IconButton(onClick = onSearchClicked) {
