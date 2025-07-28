@@ -25,8 +25,6 @@ fun AppScaffold(
     toolbarConfig: ToolbarConfig,
     onBack: () -> Unit,
     scrollBehavior: TopAppBarScrollBehavior,
-    selectedItemIndex: Int,
-    onBottomNavItemClick: (Int) -> Unit,
     content: @Composable () -> Unit,
 ){
 
